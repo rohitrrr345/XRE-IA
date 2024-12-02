@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "unit_contacts",
+  "info": {
+    "singularName": "unit-contact",
+    "pluralName": "unit-contacts",
+    "displayName": "unitContact",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "unit": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::unit.unit",
+      "inversedBy": "unit_contacts"
+    },
+    "isActive": {
+      "type": "boolean"
+    },
+    "association_type": {
+      "type": "enumeration",
+      "enum": [
+        "SPOC",
+        "TENANT",
+        "OWNER",
+        "MANAGER"
+      ]
+    },
+    "contact": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::contact.contact",
+      "inversedBy": "unit_contacts"
+    }
+  }
+}

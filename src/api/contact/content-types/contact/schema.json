@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contacts",
+  "info": {
+    "singularName": "contact",
+    "pluralName": "contacts",
+    "displayName": "contact"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email"
+    },
+    "contact_number_1": {
+      "type": "string",
+      "required": true
+    },
+    "contact_number_2": {
+      "type": "string"
+    },
+    "linkedin_url": {
+      "type": "string"
+    },
+    "website_url": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "INDIVIDUAL",
+        "COMPANY"
+      ]
+    },
+    "isActive": {
+      "type": "boolean"
+    },
+    "property_contacts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::property-contact.property-contact",
+      "mappedBy": "contact"
+    },
+    "unit_contacts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::unit-contact.unit-contact",
+      "mappedBy": "contact"
+    }
+  }
+}

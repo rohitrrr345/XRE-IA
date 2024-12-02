@@ -1,0 +1,94 @@
+{
+  "kind": "collectionType",
+  "collectionName": "units",
+  "info": {
+    "singularName": "unit",
+    "pluralName": "units",
+    "displayName": "Unit",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "unit_no": {
+      "type": "integer"
+    },
+    "area": {
+      "type": "integer",
+      "required": true
+    },
+    "price": {
+      "type": "integer",
+      "required": true
+    },
+    "parking_count": {
+      "type": "integer",
+      "required": true
+    },
+    "available_for": {
+      "type": "string",
+      "required": true
+    },
+    "age_of_furnishing": {
+      "required": true,
+      "type": "integer"
+    },
+    "unit_photo": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "date_availability": {
+      "type": "date"
+    },
+    "floor": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::floor.floor",
+      "inversedBy": "unit"
+    },
+    "property": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::property.property",
+      "inversedBy": "units"
+    },
+    "isactive": {
+      "type": "boolean"
+    },
+    "furnishing_status": {
+      "type": "enumeration",
+      "enum": [
+        "FURNISHED",
+        "UNFURNISHED",
+        "SEMI_FURNISHED"
+      ]
+    },
+    "unit_contacts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::unit-contact.unit-contact",
+      "mappedBy": "unit"
+    },
+    "asking_rental_inr": {
+      "type": "decimal"
+    },
+    "availability_type": {
+      "type": "enumeration",
+      "enum": [
+        "LEASE",
+        "SALE",
+        "BOTH",
+        "NONE"
+      ]
+    }
+  }
+}

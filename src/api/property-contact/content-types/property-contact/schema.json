@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "property_contacts",
+  "info": {
+    "singularName": "property-contact",
+    "pluralName": "property-contacts",
+    "displayName": "propertyContact",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "property": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::property.property",
+      "inversedBy": "property_contacts"
+    },
+    "contact": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::contact.contact",
+      "inversedBy": "property_contacts"
+    },
+    "isActive": {
+      "type": "boolean"
+    },
+    "association_type": {
+      "type": "enumeration",
+      "enum": [
+        "SPOC",
+        "MANAGER",
+        "TENANT",
+        "OWNER",
+        "BUILDER"
+      ]
+    }
+  }
+}

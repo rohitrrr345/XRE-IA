@@ -1,0 +1,257 @@
+{
+  "kind": "collectionType",
+  "collectionName": "properties",
+  "info": {
+    "singularName": "property",
+    "pluralName": "properties",
+    "displayName": "Property",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "owner_phone_no": {
+      "type": "string",
+      "maxLength": 20
+    },
+    "owner_email_id": {
+      "type": "email"
+    },
+    "manager_name": {
+      "type": "string"
+    },
+    "manager_phone_no": {
+      "type": "string",
+      "maxLength": 20
+    },
+    "manager_email_id": {
+      "type": "email"
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 50
+    },
+    "plot_no": {
+      "type": "string"
+    },
+    "no_of_floor": {
+      "type": "integer"
+    },
+    "total_basement": {
+      "type": "integer"
+    },
+    "total_area": {
+      "type": "integer"
+    },
+    "vacant_area": {
+      "type": "integer"
+    },
+    "per_floor_area": {
+      "type": "integer"
+    },
+    "power_backup": {
+      "type": "boolean",
+      "default": false
+    },
+    "air_conditioning": {
+      "type": "boolean",
+      "default": false
+    },
+    "state": {
+      "type": "string",
+      "required": true
+    },
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "location": {
+      "type": "string"
+    },
+    "mediaPhotos": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "maintenance_charges": {
+      "type": "integer"
+    },
+    "property_type": {
+      "type": "string"
+    },
+    "area_sqft": {
+      "type": "decimal"
+    },
+    "mezzanine_area_in_sqft": {
+      "type": "decimal"
+    },
+    "industry_lift": {
+      "type": "enumeration",
+      "enum": [
+        "yes",
+        "no",
+        "can be done"
+      ]
+    },
+    "lift_capacity_in_ton": {
+      "type": "decimal"
+    },
+    "type_of_floor": {
+      "type": "enumeration",
+      "enum": [
+        "RCC",
+        "VDF",
+        "FM II",
+        "Tremix"
+      ]
+    },
+    "type_of_building": {
+      "type": "enumeration",
+      "enum": [
+        "RCC",
+        "PEB"
+      ]
+    },
+    "latitude": {
+      "type": "decimal"
+    },
+    "longitude": {
+      "type": "decimal"
+    },
+    "floors": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::floor.floor",
+      "mappedBy": "property"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "OFFICE",
+        "LWS"
+      ],
+      "required": true
+    },
+    "zone": {
+      "type": "string"
+    },
+    "plot_number": {
+      "type": "string",
+      "required": true
+    },
+    "officeSpecificFeilds": {
+      "type": "decimal"
+    },
+    "basement_count": {
+      "unique": false,
+      "type": "integer"
+    },
+    "feature": {
+      "type": "json"
+    },
+    "per_floor_size_sqft": {
+      "type": "decimal"
+    },
+    "vacant_area_sqft": {
+      "type": "decimal"
+    },
+    "occupied_area_sqft": {
+      "type": "decimal"
+    },
+    "cam_charges_per_sqft": {
+      "type": "decimal"
+    },
+    "efficiency_percentage": {
+      "type": "decimal"
+    },
+    "lws_floor_number": {
+      "type": "string"
+    },
+    "industrial_lift": {
+      "type": "boolean"
+    },
+    "clear_height_ft": {
+      "type": "decimal"
+    },
+    "dock_count": {
+      "type": "integer"
+    },
+    "center_height_ft": {
+      "type": "decimal"
+    },
+    "dock_level_ft": {
+      "type": "decimal"
+    },
+    "lws_parking_space": {
+      "type": "boolean"
+    },
+    "ventilation": {
+      "type": "string"
+    },
+    "skylight_percentage": {
+      "type": "decimal"
+    },
+    "fire_provisions": {
+      "type": "string"
+    },
+    "fire_noc": {
+      "type": "boolean"
+    },
+    "fire_water_tank_capacity": {
+      "type": "decimal"
+    },
+    "rent_per_sqft": {
+      "type": "decimal"
+    },
+    "possession_status": {
+      "type": "string"
+    },
+    "possession_date": {
+      "type": "date"
+    },
+    "office_space": {
+      "type": "boolean"
+    },
+    "toilets": {
+      "type": "boolean"
+    },
+    "occupancy_status": {
+      "type": "enumeration",
+      "enum": [
+        "OCCUPIED",
+        "VACANT"
+      ]
+    },
+    "isactive": {
+      "type": "boolean"
+    },
+    "units": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::unit.unit",
+      "mappedBy": "property"
+    },
+    "property_contacts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::property-contact.property-contact",
+      "mappedBy": "property"
+    },
+    "features": {
+      "type": "json"
+    }
+  }
+}

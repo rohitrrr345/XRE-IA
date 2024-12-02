@@ -1,6 +1,11 @@
 export default [
-  'strapi::logger',
   'strapi::errors',
+  {
+    name: 'strapi::logger',
+    config: {
+      level: 'debug', // Enables detailed logging
+    },
+  },
   'strapi::security',
   'strapi::cors',
   'strapi::poweredBy',
