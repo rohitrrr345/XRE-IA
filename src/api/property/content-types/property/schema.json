@@ -16,31 +16,6 @@
       "type": "string",
       "required": true
     },
-    "owner_phone_no": {
-      "type": "string",
-      "maxLength": 20
-    },
-    "owner_email_id": {
-      "type": "email"
-    },
-    "manager_name": {
-      "type": "string"
-    },
-    "manager_phone_no": {
-      "type": "string",
-      "maxLength": 20
-    },
-    "manager_email_id": {
-      "type": "email"
-    },
-    "title": {
-      "type": "string",
-      "required": true,
-      "maxLength": 50
-    },
-    "plot_no": {
-      "type": "string"
-    },
     "no_of_floor": {
       "type": "integer"
     },
@@ -48,9 +23,6 @@
       "type": "integer"
     },
     "total_area": {
-      "type": "integer"
-    },
-    "vacant_area": {
       "type": "integer"
     },
     "per_floor_area": {
@@ -89,13 +61,7 @@
     "maintenance_charges": {
       "type": "integer"
     },
-    "property_type": {
-      "type": "string"
-    },
     "area_sqft": {
-      "type": "decimal"
-    },
-    "mezzanine_area_in_sqft": {
       "type": "decimal"
     },
     "industry_lift": {
@@ -252,6 +218,14 @@
     },
     "features": {
       "type": "json"
+    },
+    "office_building_type": {
+      "type": "enumeration",
+      "enum": [
+        "Institutional",
+        "Industrial",
+        "Commercial"
+      ]
     }
   }
 }

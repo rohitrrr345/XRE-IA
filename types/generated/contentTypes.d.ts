@@ -443,7 +443,6 @@ export interface ApiFloorFloor extends Struct.CollectionTypeSchema {
     property: Schema.Attribute.Relation<'manyToOne', 'api::property.property'>;
     publishedAt: Schema.Attribute.DateTime;
     total_unit: Schema.Attribute.Integer & Schema.Attribute.Required;
-    unit: Schema.Attribute.Relation<'oneToMany', 'api::unit.unit'>;
     unit_available: Schema.Attribute.Integer & Schema.Attribute.Required;
     units: Schema.Attribute.Relation<'oneToMany', 'api::unit.unit'>;
     updatedAt: Schema.Attribute.DateTime;
@@ -566,31 +565,21 @@ export interface ApiPropertyProperty extends Struct.CollectionTypeSchema {
     lws_floor_number: Schema.Attribute.String;
     lws_parking_space: Schema.Attribute.Boolean;
     maintenance_charges: Schema.Attribute.Integer;
-    manager_email_id: Schema.Attribute.Email;
-    manager_name: Schema.Attribute.String;
-    manager_phone_no: Schema.Attribute.String &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 20;
-      }>;
     mediaPhotos: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
-    mezzanine_area_in_sqft: Schema.Attribute.Decimal;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     no_of_floor: Schema.Attribute.Integer;
     occupancy_status: Schema.Attribute.Enumeration<['OCCUPIED', 'VACANT']>;
     occupied_area_sqft: Schema.Attribute.Decimal;
+    office_building_type: Schema.Attribute.Enumeration<
+      ['Institutional', 'Industrial', 'Commercial']
+    >;
     office_space: Schema.Attribute.Boolean;
     officeSpecificFeilds: Schema.Attribute.Decimal;
-    owner_email_id: Schema.Attribute.Email;
-    owner_phone_no: Schema.Attribute.String &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 20;
-      }>;
     per_floor_area: Schema.Attribute.Integer;
     per_floor_size_sqft: Schema.Attribute.Decimal;
-    plot_no: Schema.Attribute.String;
     plot_number: Schema.Attribute.String & Schema.Attribute.Required;
     possession_date: Schema.Attribute.Date;
     possession_status: Schema.Attribute.String;
@@ -599,16 +588,10 @@ export interface ApiPropertyProperty extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::property-contact.property-contact'
     >;
-    property_type: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     rent_per_sqft: Schema.Attribute.Decimal;
     skylight_percentage: Schema.Attribute.Decimal;
     state: Schema.Attribute.String & Schema.Attribute.Required;
-    title: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 50;
-      }>;
     toilets: Schema.Attribute.Boolean;
     total_area: Schema.Attribute.Integer;
     total_basement: Schema.Attribute.Integer;
@@ -622,7 +605,6 @@ export interface ApiPropertyProperty extends Struct.CollectionTypeSchema {
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    vacant_area: Schema.Attribute.Integer;
     vacant_area_sqft: Schema.Attribute.Decimal;
     ventilation: Schema.Attribute.String;
     zone: Schema.Attribute.String;
@@ -686,7 +668,6 @@ export interface ApiUnitUnit extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     date_availability: Schema.Attribute.Date;
-    floor: Schema.Attribute.Relation<'manyToOne', 'api::floor.floor'>;
     furnishing_status: Schema.Attribute.Enumeration<
       ['FURNISHED', 'UNFURNISHED', 'SEMI_FURNISHED']
     >;

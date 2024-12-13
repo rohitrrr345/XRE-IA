@@ -49,12 +49,6 @@
     "date_availability": {
       "type": "date"
     },
-    "floor": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::floor.floor",
-      "inversedBy": "unit"
-    },
     "property": {
       "type": "relation",
       "relation": "manyToOne",

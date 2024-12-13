@@ -51,20 +51,15 @@
       "target": "api::unit.unit"
     },
     "floor_plan": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
-    },
-    "unit": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::unit.unit",
-      "mappedBy": "floor"
+      ]
     }
   }
 }
