@@ -29,20 +29,18 @@
       "type": "integer"
     },
     "power_backup": {
-      "type": "boolean",
-      "default": false
+      "type": "boolean"
     },
     "air_conditioning": {
-      "type": "boolean",
-      "default": false
+      "type": "boolean"
     },
     "state": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "city": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "location": {
       "type": "string"
@@ -63,14 +61,6 @@
     },
     "area_sqft": {
       "type": "decimal"
-    },
-    "industry_lift": {
-      "type": "enumeration",
-      "enum": [
-        "yes",
-        "no",
-        "can be done"
-      ]
     },
     "lift_capacity_in_ton": {
       "type": "decimal"
@@ -170,9 +160,6 @@
     "skylight_percentage": {
       "type": "decimal"
     },
-    "fire_provisions": {
-      "type": "string"
-    },
     "fire_noc": {
       "type": "boolean"
     },
@@ -181,9 +168,6 @@
     },
     "rent_per_sqft": {
       "type": "decimal"
-    },
-    "possession_status": {
-      "type": "string"
     },
     "possession_date": {
       "type": "date"
@@ -225,6 +209,21 @@
         "Institutional",
         "Industrial",
         "Commercial"
+      ]
+    },
+    "fire_provisions": {
+      "type": "enumeration",
+      "enum": [
+        "Hydrants",
+        "Ridge Spriklers"
+      ]
+    },
+    "possession_status": {
+      "type": "enumeration",
+      "enum": [
+        "Immediate",
+        "Months",
+        "Days"
       ]
     }
   }

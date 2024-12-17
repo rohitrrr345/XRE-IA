@@ -57,4 +57,32 @@ export default factories.createCoreController('api::property.property', ({ strap
       ctx.badRequest( { error: error.message });
     }
   },
+
+    // Custom function to delete a property by ID
+    async deleteProperty(ctx) {
+      try {
+        const { id } = ctx.params; // Extract 'id' from the request params
+
+        // Check if the property exists
+        const existingProperty = await strapi.db.query('api::property.property').findOne({
+          where: { id },
+        });
+
+        if (!existingProperty) {
+          return ctx.notFound('Property not found');
+        }
+
+        // Delete the property
+        const deletedProperty = await strapi.db.query('api::property.property').delete({
+          where: { id },
+        });
+
+        // Return the deleted property
+        ctx.body = { data: deletedProperty };
+
+      }
+      catch (error) {
+        ctx.badRequest( { error: error.message });
+      }
+    },
 }));

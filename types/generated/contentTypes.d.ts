@@ -372,6 +372,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiContactContact extends Struct.CollectionTypeSchema {
   collectionName: 'contacts';
   info: {
+    description: '';
     displayName: 'contact';
     pluralName: 'contacts';
     singularName: 'contact';
@@ -400,6 +401,7 @@ export interface ApiContactContact extends Struct.CollectionTypeSchema {
       'api::property-contact.property-contact'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    test: Schema.Attribute.String;
     type: Schema.Attribute.Enumeration<['INDIVIDUAL', 'COMPANY']>;
     unit_contacts: Schema.Attribute.Relation<
       'oneToMany',
@@ -529,13 +531,12 @@ export interface ApiPropertyProperty extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    air_conditioning: Schema.Attribute.Boolean &
-      Schema.Attribute.DefaultTo<false>;
+    air_conditioning: Schema.Attribute.Boolean;
     area_sqft: Schema.Attribute.Decimal;
     basement_count: Schema.Attribute.Integer;
     cam_charges_per_sqft: Schema.Attribute.Decimal;
     center_height_ft: Schema.Attribute.Decimal;
-    city: Schema.Attribute.String & Schema.Attribute.Required;
+    city: Schema.Attribute.String;
     clear_height_ft: Schema.Attribute.Decimal;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -546,11 +547,12 @@ export interface ApiPropertyProperty extends Struct.CollectionTypeSchema {
     feature: Schema.Attribute.JSON;
     features: Schema.Attribute.JSON;
     fire_noc: Schema.Attribute.Boolean;
-    fire_provisions: Schema.Attribute.String;
+    fire_provisions: Schema.Attribute.Enumeration<
+      ['Hydrants', 'Ridge Spriklers']
+    >;
     fire_water_tank_capacity: Schema.Attribute.Decimal;
     floors: Schema.Attribute.Relation<'oneToMany', 'api::floor.floor'>;
     industrial_lift: Schema.Attribute.Boolean;
-    industry_lift: Schema.Attribute.Enumeration<['yes', 'no', 'can be done']>;
     isactive: Schema.Attribute.Boolean;
     latitude: Schema.Attribute.Decimal;
     lift_capacity_in_ton: Schema.Attribute.Decimal;
@@ -582,8 +584,10 @@ export interface ApiPropertyProperty extends Struct.CollectionTypeSchema {
     per_floor_size_sqft: Schema.Attribute.Decimal;
     plot_number: Schema.Attribute.String & Schema.Attribute.Required;
     possession_date: Schema.Attribute.Date;
-    possession_status: Schema.Attribute.String;
-    power_backup: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    possession_status: Schema.Attribute.Enumeration<
+      ['Immediate', 'Months', 'Days']
+    >;
+    power_backup: Schema.Attribute.Boolean;
     property_contacts: Schema.Attribute.Relation<
       'oneToMany',
       'api::property-contact.property-contact'
@@ -591,7 +595,7 @@ export interface ApiPropertyProperty extends Struct.CollectionTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     rent_per_sqft: Schema.Attribute.Decimal;
     skylight_percentage: Schema.Attribute.Decimal;
-    state: Schema.Attribute.String & Schema.Attribute.Required;
+    state: Schema.Attribute.String;
     toilets: Schema.Attribute.Boolean;
     total_area: Schema.Attribute.Integer;
     total_basement: Schema.Attribute.Integer;

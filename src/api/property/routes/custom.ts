@@ -19,7 +19,15 @@ export default {
               middlewares: [],
             },
           },
+            {
+            method: 'DELETE',
+            path: '/deleteProperty/:id',
+            handler: 'property.deleteProperty',
+            config: {
+              policies: [],
+              middlewares: [],
+            },
+          },
       
     ],
   };
-  
