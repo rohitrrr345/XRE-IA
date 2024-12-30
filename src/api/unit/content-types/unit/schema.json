@@ -83,6 +83,12 @@
         "BOTH",
         "NONE"
       ]
+    },
+    "floor": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::floor.floor",
+      "inversedBy": "units"
     }
   }
 }

@@ -672,6 +672,7 @@ export interface ApiUnitUnit extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     date_availability: Schema.Attribute.Date;
+    floor: Schema.Attribute.Relation<'manyToOne', 'api::floor.floor'>;
     furnishing_status: Schema.Attribute.Enumeration<
       ['FURNISHED', 'UNFURNISHED', 'SEMI_FURNISHED']
     >;

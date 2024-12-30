@@ -48,7 +48,8 @@
     "units": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::unit.unit"
+      "target": "api::unit.unit",
+      "mappedBy": "floor"
     },
     "floor_plan": {
       "type": "media",
